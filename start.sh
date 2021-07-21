@@ -7,5 +7,9 @@ if [[ -n $ACCOUNTS_ZIP_URL ]]; then
 	unzip accounts.zip -d /usr/src/app/accounts
 	rm accounts.zip
 fi
- 
+
+if [[ -n $JSON_URL ]]; then
+	wget -q $JSON_RL -O /usr/src/app/credentials.json
+fi
+
 ./aria.sh; python3 -m bot
